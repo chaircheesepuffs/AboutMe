@@ -113,6 +113,16 @@
         0 0 30px #3754d1;
     }
 
+    .my-pookies-button {
+      position: fixed;
+      top: 12px;
+      left: 12px;
+      z-index: 1000;
+      padding: 8px 16px;
+      font-size: 0.95rem;
+      box-shadow: 0 0 6px #0a2e8a, 0 0 15px #0a2e8a;
+    }
+
     .music-player {
       margin-top: 40px;
       display: flex;
@@ -160,6 +170,7 @@
       width: 80%;
       max-width: 600px;
       margin-top: 10px;
+      position: relative;
     }
 
     .progress {
@@ -167,6 +178,7 @@
       cursor: pointer;
       -webkit-appearance: none;
       background: transparent;
+      outline: none;
     }
 
     .progress::-webkit-slider-runnable-track {
@@ -182,16 +194,20 @@
       appearance: none;
       width: 18px;
       height: 18px;
-      background: #a29ff1;
+      background: #0a2e8a;
       border-radius: 50%;
       cursor: pointer;
-      box-shadow: 0 0 10px #a29ff1, 0 0 25px #a29ff1;
+      box-shadow: 0 0 10px #0a2e8a, 0 0 25px #0a2e8a;
       margin-top: -5px;
       transition: box-shadow 0.2s ease;
     }
 
     .progress::-webkit-slider-thumb:hover {
-      box-shadow: 0 0 15px #a29ff1, 0 0 30px #a29ff1;
+      box-shadow: 0 0 15px #0a2e8a, 0 0 30px #0a2e8a;
+    }
+
+    .progress::-webkit-slider-thumb:active {
+      box-shadow: 0 0 20px #0a2e8a, 0 0 40px #0a2e8a;
     }
 
     .time {
@@ -207,15 +223,17 @@
       h1 {
         font-size: 2.2em;
       }
+
       .enter-screen {
         font-size: 2.5rem;
       }
     }
-
   </style>
 </head>
 <body>
   <div class="enter-screen" onclick="startMusic()">click to enter..</div>
+
+  <a href="https://chairify.github.io/MyPookies" target="_blank" rel="noopener noreferrer" class="link-button my-pookies-button">My Pookies!</a>
 
   <div class="container" id="main-content" style="display:none;">
     <h1>about me</h1>
@@ -226,7 +244,6 @@
       <a href="https://discord.gg/anotheraxiom" target="_blank" rel="noopener noreferrer" class="link-button">Blitz Tag</a>
       <a href="https://discord.gg/EfRCeyyt9v" target="_blank" rel="noopener noreferrer" class="link-button">Chair's Metadatas</a>
       <a href="https://youtu.be/FtsmJMz8AYw?si=IH971h3-rQ74O9Fp" target="_blank" rel="noopener noreferrer" class="link-button">OnlyFans</a>
-      <a href="https://chairify.github.io/MyPookies" target="_blank" rel="noopener noreferrer" class="link-button" style="align-self: flex-start; margin-top: 20px;">My Pookies!</a>
     </div>
 
     <div class="music-player">
