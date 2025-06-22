@@ -3,8 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>About Chair</title>
-  <link rel="icon" type="image/png" href="favicon.png" />
+  <title>My Pookies</title>
   <style>
     body {
       background: linear-gradient(135deg, #ffffff, #a29ff1, #a29ff1, #ffffff);
@@ -43,6 +42,24 @@
       transform: scale(0.95);
     }
 
+    .bottom-left-credit {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-size: 0.95rem;
+      font-family: 'Futura', sans-serif;
+      color: white;
+      text-shadow: 0 0 6px #a29ff1, 0 0 12px #a29ff1;
+      user-select: none;
+      z-index: 9999;
+      opacity: 0;
+      transition: opacity 1s ease-in;
+    }
+
+    .bottom-left-credit.show {
+      opacity: 1;
+    }
+
     .container {
       width: 100%;
       max-width: 900px;
@@ -60,57 +77,43 @@
       user-select: none;
     }
 
-    .about-list {
-      list-style: none;
-      padding: 0;
-      margin: 20px 0;
-      font-size: 1.3rem;
-    }
-
-    .about-list li {
-      margin-bottom: 10px;
-      user-select: none;
-    }
-
-    .discord-links {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 20px 0;
-    }
-
-    .discord-links a {
-      text-decoration: none;
-      color: darkblue;
-      background-color: white;
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-weight: bold;
-      text-shadow: none;
-      box-shadow: 0 0 6px rgba(0,0,0,0.1);
-      transition: all 0.2s ease;
-    }
-
-    .discord-links a:hover {
-      background-color: #e0e0ff;
-    }
-
-    .nav-btn {
-      background-color: white;
-      color: darkblue;
-      border: none;
-      padding: 12px 24px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 12px;
-      cursor: pointer;
+    .friend-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 20px;
+      justify-items: center;
       margin-top: 30px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.1);
-      transition: all 0.2s ease;
     }
 
-    .nav-btn:hover {
-      background-color: #e0e0ff;
+    .friend-card {
+      background: rgba(255 255 255 / 0.2);
+      border-radius: 12px;
+      padding: 15px;
+      max-width: 260px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      color: white;
+      user-select: none;
+      box-shadow: 0 0 10px #fff, 0 0 25px #fff;
+    }
+
+    .friend-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 14px #fff, 0 0 40px #fff;
+    }
+
+    .friend-header h2 {
+      margin: 0;
+      font-size: 1.5em;
+      color: #ffffff;
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    .friend-body p {
+      font-size: 1.1em;
+      color: #ffffff;
+      user-select: none;
     }
 
     .player {
@@ -176,14 +179,6 @@
       box-shadow: 0 0 8px #a29ff1, 0 0 20px #a29ff1;
     }
 
-    .progress::-moz-range-track {
-      width: 100%;
-      height: 8px;
-      background: #a29ff1;
-      border-radius: 6px;
-      box-shadow: 0 0 8px #a29ff1, 0 0 20px #a29ff1;
-    }
-
     .progress::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -197,24 +192,6 @@
       transition: box-shadow 0.2s ease;
     }
 
-    .progress::-webkit-slider-thumb:hover {
-      box-shadow: 0 0 15px #a29ff1, 0 0 30px #a29ff1;
-    }
-
-    .progress::-moz-range-thumb {
-      width: 18px;
-      height: 18px;
-      background: #a29ff1;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 0 10px #a29ff1, 0 0 25px #a29ff1;
-      transition: box-shadow 0.2s ease;
-    }
-
-    .progress::-moz-range-thumb:hover {
-      box-shadow: 0 0 15px #a29ff1, 0 0 30px #a29ff1;
-    }
-
     .time {
       margin-top: 4px;
       font-size: 0.9em;
@@ -224,38 +201,62 @@
       text-shadow: 0 0 6px #a29ff1, 0 0 15px #a29ff1;
     }
 
-    .bottom-left-credit {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      font-size: 0.9rem;
+    .about-button {
+      margin-top: 30px;
+      padding: 10px 20px;
+      font-family: 'Futura', sans-serif;
+      font-size: 1.2rem;
       color: white;
-      opacity: 0;
-      transition: opacity 1s ease;
-      text-shadow: 0 0 8px #fff, 0 0 12px #fff;
+      background: #4a5bdc;
+      border: none;
+      border-radius: 12px;
+      cursor: pointer;
+      box-shadow: 0 0 10px #4a5bdc;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      text-transform: none;
     }
 
-    .bottom-left-credit.show {
-      opacity: 1;
+    .about-button:hover {
+      background: #3949ab;
+      box-shadow: 0 0 20px #3949ab;
+    }
+
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+      .enter-screen {
+        font-size: 2.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .friend-cards {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="enter-screen" onclick="startAbout()">click to enter</div>
+  <div class="enter-screen" onclick="startMusic()">click to enter</div>
 
   <div class="container" id="main-content" style="display:none;">
-    <h1>About Chair</h1>
-    <ul class="about-list">
-      <li>hi i'm chair</li>
-      <li>i'm arabic and canadian</li>
-      <li>meow</li>
-    </ul>
-    <div class="discord-links">
-      <a href="https://discord.gg/fire-tag" target="_blank">Fire Tag</a>
-      <a href="https://discord.gg/anotheraxiom" target="_blank">Blitz Tag</a>
-      <a href="https://discord.gg/EfRCeyyt9v" target="_blank">Chair's Metadatas</a>
+    <h1>MY POOKIES!!</h1>
+    <div class="friend-cards">
+      <div class="friend-card"><div class="friend-header"><h2>bxt</h2></div><div class="friend-body"><p>bxt pookie!!</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>neva</h2></div><div class="friend-body"><p>bestest friend eva</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>laxlep</h2></div><div class="friend-body"><p>laxlep goon on vc on time</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>jjfire</h2></div><div class="friend-body"><p>jjfire is jjfire and no one can change that</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>heeps</h2></div><div class="friend-body"><p>british</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>astral</h2></div><div class="friend-body"><p>astral from aa services gooner boy</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>table</h2></div><div class="friend-body"><p>brother</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>z4eu</h2></div><div class="friend-body"><p>z4eu is very cute and adorable and kissable</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>raze</h2></div><div class="friend-body"><p>raze og raze</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>prroxzy</h2></div><div class="friend-body"><p>if you saw this guy you would wanna kiss him aggresively</p></div></div>
+      <div class="friend-card"><div class="friend-header"><h2>kingguernesy</h2></div><div class="friend-body"><p>dude start making project krabs updates again PLEASE</p></div></div>
     </div>
-    <button class="nav-btn" onclick="window.location.href='https://chairify.github.io/MyPookies'">My Pookies!</button>
+
     <div class="player">
       <div class="song-title" id="song-title">Loading...</div>
       <button class="volume-btn" id="volume-btn">mute</button>
@@ -264,6 +265,8 @@
         <div class="time" id="time">0:00 - 0:00</div>
       </div>
     </div>
+
+    <button class="about-button" onclick="window.location.href='https://chairify.github.io/AboutMe'">Go To About Me</button>
   </div>
 
   <div class="bottom-left-credit" id="watermark">Made By Chair (application.quit)</div>
@@ -343,7 +346,9 @@
     });
 
     audio.addEventListener("play", () => {
-      if (!progressUpdateRequest) updateProgress();
+      if (!progressUpdateRequest) {
+        updateProgress();
+      }
     });
 
     audio.addEventListener("pause", () => {
@@ -353,7 +358,7 @@
       }
     });
 
-    function startAbout() {
+    function startMusic() {
       enterScreen.style.display = "none";
       mainContent.style.display = "block";
       playRandomSong();
