@@ -54,9 +54,7 @@
       z-index: 9999;
       opacity: 0;
       transition: opacity 1s ease-in;
-      text-shadow:
-        0 0 8px white,
-        0 0 15px white;
+      text-shadow: 0 0 8px white, 0 0 15px white;
     }
 
     .bottom-left-credit.show {
@@ -83,151 +81,13 @@
       user-select: none;
     }
 
-    .links {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 15px;
-      margin-top: 30px;
-    }
-
-    .link-button {
-      background: rgba(255 255 255 / 0.15);
-      color: #0a2e8a;
-      border: 2px solid #0a2e8a;
-      padding: 10px 20px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 1.1rem;
-      cursor: pointer;
-      text-decoration: none;
-      user-select: none;
-      box-shadow:
-        0 0 8px #0a2e8a,
-        0 0 20px #0a2e8a;
-      transition: background 0.3s ease, color 0.3s ease;
-    }
-
-    .link-button:hover {
-      background: #0a2e8a;
+    .about-text {
+      margin-top: 20px;
       color: white;
-      box-shadow:
-        0 0 15px #3754d1,
-        0 0 30px #3754d1;
-    }
-
-    .my-pookies-button {
-      position: fixed;
-      top: 12px;
-      left: 12px;
-      z-index: 1000;
-      padding: 8px 16px;
-      font-size: 0.95rem;
-      box-shadow: 0 0 6px #0a2e8a, 0 0 15px #0a2e8a;
-    }
-
-    .onlyfans-button {
-      position: fixed;
-      top: 12px;
-      right: 12px;
-      z-index: 1000;
-      padding: 8px 16px;
-      font-size: 0.95rem;
-      box-shadow: 0 0 6px #0a2e8a, 0 0 15px #0a2e8a;
-    }
-
-    .music-player {
-      margin-top: 40px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      text-shadow: 0 0 8px white, 0 0 20px white;
       font-size: 1.2rem;
+      line-height: 1.8;
       user-select: none;
-      color: white;
-    }
-
-    .song-title {
-      margin-bottom: 10px;
-      text-transform: lowercase;
-      font-weight: 600;
-      color: white;
-      text-shadow: 0 0 8px #a29ff1, 0 0 20px #a29ff1;
-      user-select: none;
-    }
-
-    .volume-btn {
-      cursor: pointer;
-      margin-top: 10px;
-      transition: transform 0.2s ease, text-shadow 0.2s ease;
-      font-size: 1.1rem;
-      color: white;
-      text-transform: lowercase;
-      background: none;
-      border: none;
-      outline: none;
-      user-select: none;
-      text-shadow: 0 0 6px #a29ff1, 0 0 12px #a29ff1;
-    }
-
-    .volume-btn:hover {
-      transform: scale(1.1);
-      text-shadow: 0 0 10px #a29ff1, 0 0 20px #a29ff1;
-    }
-
-    .volume-btn:active {
-      transform: scale(0.95);
-    }
-
-    .progress-container {
-      width: 80%;
-      max-width: 600px;
-      margin-top: 10px;
-      position: relative;
-    }
-
-    .progress {
-      width: 100%;
-      cursor: pointer;
-      -webkit-appearance: none;
-      background: transparent;
-      outline: none;
-    }
-
-    .progress::-webkit-slider-runnable-track {
-      width: 100%;
-      height: 8px;
-      background: #00ffff;
-      border-radius: 6px;
-      box-shadow: 0 0 8px #00ffff, 0 0 20px #00ffff;
-    }
-
-    .progress::-webkit-slider-thumb {
-      -webkit-appearance: none;
-      appearance: none;
-      width: 18px;
-      height: 18px;
-      background: #00ffff;
-      border-radius: 50%;
-      cursor: pointer;
-      box-shadow: 0 0 10px #00ffff, 0 0 25px #00ffff;
-      margin-top: -5px;
-      transition: box-shadow 0.2s ease;
-    }
-
-    .progress::-webkit-slider-thumb:hover {
-      box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
-    }
-
-    .progress::-webkit-slider-thumb:active {
-      box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
-    }
-
-    .time {
-      margin-top: 4px;
-      font-size: 0.9em;
-      user-select: none;
-      color: white;
-      text-shadow: 0 0 6px #a29ff1, 0 0 15px #a29ff1;
     }
 
     @media (max-width: 768px) {
@@ -238,131 +98,34 @@
       .enter-screen {
         font-size: 2.5rem;
       }
+
+      .about-text {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="enter-screen" onclick="startMusic()">click to enter..</div>
-
-  <a href="https://chairify.github.io/MyPookies" target="_blank" rel="noopener noreferrer" class="link-button my-pookies-button">My Pookies!</a>
-  <a href="https://youtu.be/FtsmJMz8AYw?si=IH971h3-rQ74O9Fp" target="_blank" rel="noopener noreferrer" class="link-button onlyfans-button">OnlyFans</a>
+  <div class="enter-screen" onclick="startPage()">click to enter..</div>
 
   <div class="container" id="main-content" style="display:none;">
     <h1>about me</h1>
 
-    <div class="links">
-      <a href="https://discord.gg/fire-tag" target="_blank" rel="noopener noreferrer" class="link-button">Fire Tag</a>
-      <a href="https://discord.gg/anotheraxiom" target="_blank" rel="noopener noreferrer" class="link-button">Blitz Tag</a>
-      <a href="https://discord.gg/EfRCeyyt9v" target="_blank" rel="noopener noreferrer" class="link-button">Chair's Metadatas</a>
-    </div>
-
-    <div class="music-player">
-      <div class="song-title" id="song-title">Loading...</div>
-      <button class="volume-btn" id="volume-btn">mute</button>
-      <div class="progress-container">
-        <input type="range" id="progress" class="progress" value="0" min="0" step="1" />
-        <div class="time" id="time">0:00 - 0:00</div>
-      </div>
+    <div class="about-text">
+      <p>- hi im chair</p>
+      <p>- im arabic and canadian</p>
+      <p>- meow</p>
     </div>
   </div>
 
   <div class="bottom-left-credit" id="watermark">Made By Chair (application.quit)</div>
 
   <script>
-    const songs = [
-      { url: "https://github.com/chairify/somg/raw/refs/heads/main/ok%20im%20cool.mp3", name: "ok im cool" },
-      { url: "https://github.com/chairify/somg/raw/refs/heads/main/Stephanie.mp3", name: "stephanie" },
-      { url: "https://github.com/chairify/somg/raw/refs/heads/main/Nope%20your%20too%20late%20i%20already%20died.mp3", name: "nope your too late i already died" },
-      { url: "https://github.com/chairify/somg/raw/refs/heads/main/party.mp3", name: "party" }
-    ];
-
-    const audio = new Audio();
-    audio.volume = 0.7;
-
-    const volumeBtn = document.getElementById("volume-btn");
-    const songTitle = document.getElementById("song-title");
-    const progress = document.getElementById("progress");
-    const timeDisplay = document.getElementById("time");
-    const enterScreen = document.querySelector(".enter-screen");
-    const mainContent = document.getElementById("main-content");
-    const watermark = document.getElementById("watermark");
-
-    let isMuted = false;
-    let currentSongIndex = -1;
-    let progressUpdateRequest;
-
-    function formatTime(seconds) {
-      const mins = Math.floor(seconds / 60);
-      const secs = Math.floor(seconds % 60);
-      return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
-    }
-
-    function loadSong(index) {
-      currentSongIndex = index;
-      audio.src = songs[index].url;
-      audio.load();
-      songTitle.textContent = songs[index].name;
-      progress.value = 0;
-      timeDisplay.textContent = `0:00 - 0:00`;
-    }
-
-    function playRandomSong() {
-      let nextIndex;
-      do {
-        nextIndex = Math.floor(Math.random() * songs.length);
-      } while (nextIndex === currentSongIndex);
-      loadSong(nextIndex);
-      audio.play();
-    }
-
-    function updateProgress() {
-      if (!audio.duration) {
-        progress.max = 100;
-        progress.value = 0;
-        timeDisplay.textContent = `0:00 - 0:00`;
-        progressUpdateRequest = requestAnimationFrame(updateProgress);
-        return;
-      }
-      progress.max = Math.floor(audio.duration);
-      progress.value = Math.floor(audio.currentTime);
-      timeDisplay.textContent = `${formatTime(audio.currentTime)} - ${formatTime(audio.duration)}`;
-      progressUpdateRequest = requestAnimationFrame(updateProgress);
-    }
-
-    progress.addEventListener("input", () => {
-      audio.currentTime = progress.value;
-      updateProgress();
-    });
-
-    volumeBtn.addEventListener("click", () => {
-      isMuted = !isMuted;
-      audio.muted = isMuted;
-      volumeBtn.textContent = isMuted ? "unmute" : "mute";
-    });
-
-    audio.addEventListener("ended", () => {
-      playRandomSong();
-    });
-
-    audio.addEventListener("play", () => {
-      if (!progressUpdateRequest) {
-        updateProgress();
-      }
-    });
-
-    audio.addEventListener("pause", () => {
-      if (progressUpdateRequest) {
-        cancelAnimationFrame(progressUpdateRequest);
-        progressUpdateRequest = null;
-      }
-    });
-
-    function startMusic() {
-      enterScreen.style.display = "none";
-      mainContent.style.display = "block";
-      playRandomSong();
+    function startPage() {
+      document.querySelector('.enter-screen').style.display = 'none';
+      document.getElementById('main-content').style.display = 'block';
       setTimeout(() => {
-        watermark.classList.add("show");
+        document.getElementById('watermark').classList.add('show');
       }, 2000);
     }
   </script>
