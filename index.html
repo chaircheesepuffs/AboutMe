@@ -49,15 +49,13 @@
       font-size: 0.95rem;
       font-family: 'Futura', sans-serif;
       color: white;
-      text-shadow:
-        -1px -1px 0 black,
-        1px -1px 0 black,
-        -1px 1px 0 black,
-        1px 1px 0 black;
       user-select: none;
       z-index: 9999;
       opacity: 0;
       transition: opacity 1s ease-in;
+      text-shadow:
+        0 0 8px white,
+        0 0 15px white;
     }
 
     .bottom-left-credit.show {
@@ -66,76 +64,63 @@
 
     .container {
       width: 100%;
-      max-width: 600px;
+      max-width: 900px;
       padding: 20px;
       margin: 40px auto 60px auto;
     }
 
     h1 {
-      font-size: 3.2em;
+      font-size: 2.8em;
       text-transform: lowercase;
       letter-spacing: 3px;
       color: #ffffff;
       text-shadow: 0 0 8px #a29ff1, 0 0 20px #a29ff1;
-      margin-bottom: 30px;
+      margin-bottom: 10px;
       user-select: none;
     }
 
-    p {
-      font-size: 1.2rem;
-      margin-bottom: 12px;
-      user-select: none;
+    .links {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 15px;
+      margin-top: 30px;
     }
 
-    .btn-link {
-      display: inline-block;
-      margin: 8px 12px;
+    .link-button {
+      background: rgba(255 255 255 / 0.15);
+      color: #0a2e8a;
+      border: 2px solid #0a2e8a;
       padding: 10px 20px;
-      background-color: #1e3a8a;
-      color: white;
       border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
       font-family: 'Futura', sans-serif;
-      box-shadow:
-        0 0 8px #1e3a8a,
-        0 0 16px #1e3a8a;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      font-weight: 600;
+      font-size: 1.1rem;
+      cursor: pointer;
+      text-decoration: none;
       user-select: none;
-    }
-
-    .btn-link:hover {
-      background-color: #374ea2;
       box-shadow:
-        0 0 14px #374ea2,
-        0 0 28px #374ea2;
+        0 0 8px #0a2e8a,
+        0 0 20px #0a2e8a;
+      transition: background 0.3s ease, color 0.3s ease;
     }
 
-    #go-pookies {
-      position: fixed;
-      top: 15px;
-      left: 15px;
-      font-size: 1rem;
-      z-index: 9999;
-      display: none;
+    .link-button:hover {
+      background: #0a2e8a;
+      color: white;
+      box-shadow:
+        0 0 15px #3754d1,
+        0 0 30px #3754d1;
     }
 
-    #onlyfans-btn {
-      position: fixed;
-      top: 15px;
-      right: 15px;
-      font-size: 1rem;
-      z-index: 9999;
-      display: none;
-    }
-
-    .player {
+    .music-player {
       margin-top: 40px;
       display: flex;
       flex-direction: column;
       align-items: center;
       font-size: 1.2rem;
       user-select: none;
+      color: white;
     }
 
     .song-title {
@@ -173,7 +158,7 @@
 
     .progress-container {
       width: 80%;
-      max-width: 450px;
+      max-width: 600px;
       margin-top: 10px;
     }
 
@@ -205,6 +190,10 @@
       transition: box-shadow 0.2s ease;
     }
 
+    .progress::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 15px #a29ff1, 0 0 30px #a29ff1;
+    }
+
     .time {
       margin-top: 4px;
       font-size: 0.9em;
@@ -214,31 +203,33 @@
       text-shadow: 0 0 6px #a29ff1, 0 0 15px #a29ff1;
     }
 
-    @media (max-width: 480px) {
-      .btn-link {
-        font-size: 0.9rem;
-        padding: 8px 14px;
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2.2em;
+      }
+      .enter-screen {
+        font-size: 2.5rem;
       }
     }
+
   </style>
 </head>
 <body>
   <div class="enter-screen" onclick="startMusic()">click to enter..</div>
 
-  <a href="https://chairify.github.io/MyPookies" id="go-pookies" class="btn-link">My Pookies!</a>
-  <a href="https://youtu.be/FtsmJMz8AYw?si=IH971h3-rQ74O9Fp" id="onlyfans-btn" class="btn-link" target="_blank" rel="noopener noreferrer">OnlyFans</a>
-
   <div class="container" id="main-content" style="display:none;">
     <h1>about me</h1>
-    <p>hi im chair</p>
-    <p>im arabic and canadian</p>
-    <p>meow</p>
 
-    <a href="https://discord.gg/fire-tag" class="btn-link" target="_blank" rel="noopener noreferrer">Fire Tag</a>
-    <a href="https://discord.gg/anotheraxiom" class="btn-link" target="_blank" rel="noopener noreferrer">Blitz Tag</a>
-    <a href="https://discord.gg/EfRCeyyt9v" class="btn-link" target="_blank" rel="noopener noreferrer">Chair's Metadatas</a>
+    <div class="links">
+      <a href="https://chairify.github.io/AboutMe" target="_blank" rel="noopener noreferrer" class="link-button">About Me</a>
+      <a href="https://discord.gg/fire-tag" target="_blank" rel="noopener noreferrer" class="link-button">Fire Tag</a>
+      <a href="https://discord.gg/anotheraxiom" target="_blank" rel="noopener noreferrer" class="link-button">Blitz Tag</a>
+      <a href="https://discord.gg/EfRCeyyt9v" target="_blank" rel="noopener noreferrer" class="link-button">Chair's Metadatas</a>
+      <a href="https://youtu.be/FtsmJMz8AYw?si=IH971h3-rQ74O9Fp" target="_blank" rel="noopener noreferrer" class="link-button">OnlyFans</a>
+      <a href="https://chairify.github.io/MyPookies" target="_blank" rel="noopener noreferrer" class="link-button" style="align-self: flex-start; margin-top: 20px;">My Pookies!</a>
+    </div>
 
-    <div class="player">
+    <div class="music-player">
       <div class="song-title" id="song-title">Loading...</div>
       <button class="volume-btn" id="volume-btn">mute</button>
       <div class="progress-container">
@@ -260,14 +251,13 @@
 
     const audio = new Audio();
     audio.volume = 0.7;
+
     const volumeBtn = document.getElementById("volume-btn");
     const songTitle = document.getElementById("song-title");
     const progress = document.getElementById("progress");
     const timeDisplay = document.getElementById("time");
     const enterScreen = document.querySelector(".enter-screen");
     const mainContent = document.getElementById("main-content");
-    const goPookiesBtn = document.getElementById("go-pookies");
-    const onlyFansBtn = document.getElementById("onlyfans-btn");
     const watermark = document.getElementById("watermark");
 
     let isMuted = false;
@@ -343,8 +333,6 @@
     function startMusic() {
       enterScreen.style.display = "none";
       mainContent.style.display = "block";
-      goPookiesBtn.style.display = "inline-block";
-      onlyFansBtn.style.display = "inline-block";
       playRandomSong();
       setTimeout(() => {
         watermark.classList.add("show");
