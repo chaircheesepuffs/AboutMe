@@ -39,33 +39,19 @@
       text-shadow: 0 0 12px #fff, 0 0 20px #fff;
     }
 
-    .bottom-left-credit {
-      position: fixed;
-      bottom: 10px;
-      left: 10px;
-      font-size: 0.95rem;
-      font-family: 'Futura', sans-serif;
-      color: white;
-      text-shadow: 0 0 6px #a29ff1, 0 0 12px #a29ff1;
-      user-select: none;
-      z-index: 9999;
-      opacity: 0;
-      transition: opacity 1s ease-in;
-    }
-
-    .bottom-left-credit.show {
-      opacity: 1;
+    .enter-screen:active {
+      transform: scale(0.95);
     }
 
     .container {
       width: 100%;
-      max-width: 800px;
-      padding: 40px 20px 80px;
-      margin: 0 auto;
+      max-width: 900px;
+      padding: 20px;
+      margin: 40px auto 60px auto;
     }
 
     h1 {
-      font-size: 3em;
+      font-size: 2.8em;
       text-transform: uppercase;
       letter-spacing: 3px;
       color: #ffffff;
@@ -75,59 +61,60 @@
     }
 
     .about-list {
-      font-size: 1.3em;
-      margin: 30px auto 10px auto;
-      max-width: 700px;
-      text-align: left;
-      list-style-type: disc;
-      padding-left: 40px;
-      color: white;
-      text-shadow: 0 0 5px #a29ff1;
-      user-select: text;
+      list-style: none;
+      padding: 0;
+      margin: 20px 0;
+      font-size: 1.3rem;
     }
 
     .about-list li {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      user-select: none;
+    }
+
+    .discord-links {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 20px 0;
     }
 
     .discord-links a {
-      color: #a29ff1;
       text-decoration: none;
-      font-weight: 600;
-      user-select: text;
+      color: darkblue;
+      background-color: white;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: bold;
+      text-shadow: none;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
     }
 
     .discord-links a:hover {
-      text-decoration: underline;
+      background-color: #e0e0ff;
     }
 
     .nav-btn {
-      margin-top: 30px;
+      background-color: white;
+      color: darkblue;
+      border: none;
       padding: 12px 24px;
-      font-size: 1.1rem;
-      font-family: 'Futura', sans-serif;
-      text-transform: lowercase;
-      background: rgba(255, 255, 255, 0.15);
-      border: 2px solid #a29ff1;
-      border-radius: 16px;
-      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 12px;
       cursor: pointer;
-      text-shadow: 0 0 6px #a29ff1;
-      box-shadow: 0 0 10px #a29ff1, 0 0 25px #a29ff1;
-      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      margin-top: 30px;
+      box-shadow: 0 0 6px rgba(0,0,0,0.1);
+      transition: all 0.2s ease;
     }
 
     .nav-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 14px #a29ff1, 0 0 35px #a29ff1;
-    }
-
-    .nav-btn:active {
-      transform: scale(0.95);
+      background-color: #e0e0ff;
     }
 
     .player {
-      margin-top: 40px;
+      margin-top: 30px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -164,6 +151,10 @@
       text-shadow: 0 0 10px #a29ff1, 0 0 20px #a29ff1;
     }
 
+    .volume-btn:active {
+      transform: scale(0.95);
+    }
+
     .progress-container {
       width: 80%;
       max-width: 600px;
@@ -178,6 +169,15 @@
     }
 
     .progress::-webkit-slider-runnable-track {
+      width: 100%;
+      height: 8px;
+      background: #a29ff1;
+      border-radius: 6px;
+      box-shadow: 0 0 8px #a29ff1, 0 0 20px #a29ff1;
+    }
+
+    .progress::-moz-range-track {
+      width: 100%;
       height: 8px;
       background: #a29ff1;
       border-radius: 6px;
@@ -197,6 +197,24 @@
       transition: box-shadow 0.2s ease;
     }
 
+    .progress::-webkit-slider-thumb:hover {
+      box-shadow: 0 0 15px #a29ff1, 0 0 30px #a29ff1;
+    }
+
+    .progress::-moz-range-thumb {
+      width: 18px;
+      height: 18px;
+      background: #a29ff1;
+      border-radius: 50%;
+      cursor: pointer;
+      box-shadow: 0 0 10px #a29ff1, 0 0 25px #a29ff1;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .progress::-moz-range-thumb:hover {
+      box-shadow: 0 0 15px #a29ff1, 0 0 30px #a29ff1;
+    }
+
     .time {
       margin-top: 4px;
       font-size: 0.9em;
@@ -205,24 +223,39 @@
       color: white;
       text-shadow: 0 0 6px #a29ff1, 0 0 15px #a29ff1;
     }
+
+    .bottom-left-credit {
+      position: fixed;
+      bottom: 10px;
+      left: 10px;
+      font-size: 0.9rem;
+      color: white;
+      opacity: 0;
+      transition: opacity 1s ease;
+      text-shadow: 0 0 8px #fff, 0 0 12px #fff;
+    }
+
+    .bottom-left-credit.show {
+      opacity: 1;
+    }
   </style>
 </head>
 <body>
   <div class="enter-screen" onclick="startAbout()">click to enter</div>
 
   <div class="container" id="main-content" style="display:none;">
-    <h1>About Me</h1>
+    <h1>About Chair</h1>
     <ul class="about-list">
       <li>hi i'm chair</li>
       <li>i'm arabic and canadian</li>
       <li>meow</li>
-      <li class="discord-links"><a href="https://discord.gg/fire-tag" target="_blank" rel="noopener noreferrer">https://discord.gg/fire-tag</a></li>
-      <li class="discord-links"><a href="https://discord.gg/anotheraxiom" target="_blank" rel="noopener noreferrer">https://discord.gg/anotheraxiom</a></li>
-      <li class="discord-links"><a href="https://discord.gg/EfRCeyyt9v" target="_blank" rel="noopener noreferrer">https://discord.gg/EfRCeyyt9v</a></li>
     </ul>
-
-    <button class="nav-btn" onclick="window.location.href='https://chaircheesepuffs.github.io/MyPookies'">go to my pookies</button>
-
+    <div class="discord-links">
+      <a href="https://discord.gg/fire-tag" target="_blank">Fire Tag</a>
+      <a href="https://discord.gg/anotheraxiom" target="_blank">Blitz Tag</a>
+      <a href="https://discord.gg/EfRCeyyt9v" target="_blank">Chair's Metadatas</a>
+    </div>
+    <button class="nav-btn" onclick="window.location.href='https://chairify.github.io/MyPookies'">My Pookies!</button>
     <div class="player">
       <div class="song-title" id="song-title">Loading...</div>
       <button class="volume-btn" id="volume-btn">mute</button>
@@ -237,10 +270,10 @@
 
   <script>
     const songs = [
-      { url: "https://github.com/chaircheesepuffs/somg/raw/refs/heads/main/ok%20im%20cool.mp3", name: "ok im cool" },
-      { url: "https://github.com/chaircheesepuffs/somg/raw/refs/heads/main/Stephanie.mp3", name: "stephanie" },
-      { url: "https://github.com/chaircheesepuffs/somg/raw/refs/heads/main/Nope%20your%20too%20late%20i%20already%20died.mp3", name: "nope your too late i already died" },
-      { url: "https://github.com/chaircheesepuffs/somg/raw/refs/heads/main/party.mp3", name: "party" }
+      { url: "https://github.com/chairify/somg/raw/refs/heads/main/ok%20im%20cool.mp3", name: "ok im cool" },
+      { url: "https://github.com/chairify/somg/raw/refs/heads/main/Stephanie.mp3", name: "stephanie" },
+      { url: "https://github.com/chairify/somg/raw/refs/heads/main/Nope%20your%20too%20late%20i%20already%20died.mp3", name: "nope your too late i already died" },
+      { url: "https://github.com/chairify/somg/raw/refs/heads/main/party.mp3", name: "party" }
     ];
 
     const audio = new Audio();
