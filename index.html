@@ -17,7 +17,6 @@
       display: flex;
       flex-direction: column;
     }
-
     .enter-screen {
       position: fixed;
       inset: 0;
@@ -34,16 +33,13 @@
       user-select: none;
       text-shadow: 0 0 8px #fff, 0 0 15px #fff;
     }
-
     .enter-screen:hover {
       transform: scale(1.05);
       text-shadow: 0 0 12px #fff, 0 0 20px #fff;
     }
-
     .enter-screen:active {
       transform: scale(0.95);
     }
-
     .bottom-left-credit {
       position: fixed;
       bottom: 10px;
@@ -56,11 +52,9 @@
       transition: opacity 1s ease-in;
       text-shadow: 0 0 8px white, 0 0 15px white;
     }
-
     .bottom-left-credit.show {
       opacity: 1;
     }
-
     .container {
       flex: 1;
       display: flex;
@@ -70,7 +64,6 @@
       padding: 20px;
       margin: 40px auto 60px auto;
     }
-
     h1 {
       font-size: 2.8em;
       text-transform: lowercase;
@@ -80,7 +73,6 @@
       margin-bottom: 10px;
       user-select: none;
     }
-
     .about-me-text {
       margin-top: 30px;
       font-size: 1.4rem;
@@ -88,7 +80,13 @@
       text-shadow: 0 0 8px white, 0 0 20px white;
       user-select: none;
     }
-
+    .visitor-count {
+      margin-top: 20px;
+      font-size: 1.3rem;
+      color: white;
+      text-shadow: 0 0 8px white, 0 0 20px white;
+      user-select: none;
+    }
     .links {
       display: flex;
       flex-direction: column;
@@ -96,7 +94,6 @@
       gap: 15px;
       margin-top: 30px;
     }
-
     .link-button {
       background: rgba(255, 255, 255, 0.15);
       color: #0a2e8a;
@@ -111,13 +108,11 @@
       box-shadow: 0 0 8px #0a2e8a, 0 0 20px #0a2e8a;
       transition: background 0.3s ease, color 0.3s ease;
     }
-
     .link-button:hover {
       background: #0a2e8a;
       color: white;
       box-shadow: 0 0 15px #3754d1, 0 0 30px #3754d1;
     }
-
     .my-pookies-button {
       position: fixed;
       top: 12px;
@@ -127,7 +122,6 @@
       font-size: 0.95rem;
       box-shadow: 0 0 6px #0a2e8a, 0 0 15px #0a2e8a;
     }
-
     .onlyfans-button {
       position: fixed;
       top: 12px;
@@ -137,7 +131,6 @@
       font-size: 0.95rem;
       box-shadow: 0 0 6px #0a2e8a, 0 0 15px #0a2e8a;
     }
-
     .music-player {
       margin-top: 40px;
       display: flex;
@@ -147,7 +140,6 @@
       user-select: none;
       color: white;
     }
-
     .song-title {
       margin-bottom: 10px;
       text-transform: lowercase;
@@ -156,7 +148,6 @@
       text-shadow: 0 0 8px #a29ff1, 0 0 20px #a29ff1;
       user-select: none;
     }
-
     .volume-btn {
       cursor: pointer;
       margin-top: 10px;
@@ -170,23 +161,19 @@
       user-select: none;
       text-shadow: 0 0 6px #a29ff1, 0 0 12px #a29ff1;
     }
-
     .volume-btn:hover {
       transform: scale(1.1);
       text-shadow: 0 0 10px #a29ff1, 0 0 20px #a29ff1;
     }
-
     .volume-btn:active {
       transform: scale(0.95);
     }
-
     .progress-container {
       width: 80%;
       max-width: 600px;
       margin-top: 10px;
       position: relative;
     }
-
     .progress {
       width: 100%;
       cursor: pointer;
@@ -194,7 +181,6 @@
       background: transparent;
       outline: none;
     }
-
     .progress::-webkit-slider-runnable-track {
       width: 100%;
       height: 8px;
@@ -202,7 +188,6 @@
       border-radius: 6px;
       box-shadow: 0 0 8px #00ffff, 0 0 20px #00ffff;
     }
-
     .progress::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
@@ -215,15 +200,12 @@
       margin-top: -5px;
       transition: box-shadow 0.2s ease;
     }
-
     .progress::-webkit-slider-thumb:hover {
       box-shadow: 0 0 15px #00ffff, 0 0 30px #00ffff;
     }
-
     .progress::-webkit-slider-thumb:active {
       box-shadow: 0 0 20px #00ffff, 0 0 40px #00ffff;
     }
-
     .time {
       margin-top: 4px;
       font-size: 0.9em;
@@ -231,12 +213,10 @@
       color: white;
       text-shadow: 0 0 6px #a29ff1, 0 0 15px #a29ff1;
     }
-
     @media (max-width: 768px) {
       h1 {
         font-size: 2.2em;
       }
-
       .enter-screen {
         font-size: 2.5rem;
       }
@@ -251,19 +231,17 @@
 
   <div class="container" id="main-content" style="display:none;">
     <h1>about me</h1>
-
     <div class="about-me-text">
       <p>hi im chair</p>
       <p>im arabic and canadian</p>
       <p>meow</p>
     </div>
-
+    <div class="visitor-count" id="visitor-count">Loading visitor count...</div>
     <div class="links">
-      <a href="https://discord.gg/Wzx39GTrqy" target="_blank" class="link-button">Fire Tag</a>
+      <a href="https://discord.gg/fire-tag" target="_blank" class="link-button">Fire Tag</a>
       <a href="https://discord.gg/anotheraxiom" target="_blank" class="link-button">Blitz Tag</a>
       <a href="https://discord.gg/EfRCeyyt9v" target="_blank" class="link-button">Meta Tag</a>
     </div>
-
     <div class="music-player">
       <div class="song-title" id="song-title">Loading...</div>
       <button class="volume-btn" id="volume-btn">mute</button>
@@ -294,6 +272,7 @@
     const enterScreen = document.querySelector(".enter-screen");
     const mainContent = document.getElementById("main-content");
     const watermark = document.getElementById("watermark");
+    const visitorCountElem = document.getElementById('visitor-count');
 
     let isMuted = false;
     let currentSongIndex = -1;
@@ -365,10 +344,22 @@
       }
     });
 
+    function fetchVisitorCount() {
+      fetch('/visitingthing')
+        .then(res => res.text())
+        .then(text => {
+          visitorCountElem.textContent = text;
+        })
+        .catch(() => {
+          visitorCountElem.textContent = 'Could not load visitor count';
+        });
+    }
+
     function startMusic() {
       enterScreen.style.display = "none";
       mainContent.style.display = "block";
       playRandomSong();
+      fetchVisitorCount();
       setTimeout(() => {
         watermark.classList.add("show");
       }, 2000);
